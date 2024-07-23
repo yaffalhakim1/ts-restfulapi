@@ -14,11 +14,11 @@ export const errorMiddleware = async (
     });
   } else if (error instanceof ResponseError) {
     response.status(error.status).json({
-      message: error.message,
+      errors: error.message,
     });
   } else {
     response.status(500).json({
-      message: "Internal Server Error",
+      errors: "Internal Server Error",
     });
   }
 };
